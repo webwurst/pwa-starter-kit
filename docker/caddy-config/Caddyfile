@@ -1,0 +1,11 @@
+:8080
+gzip
+log stdout
+errors stdout
+root /var/www
+tls self_signed
+push
+
+proxy / prpl:8080 {
+	transparent
+}

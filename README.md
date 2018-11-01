@@ -5,9 +5,13 @@ Based on [PWA Starter Kit](https://github.com/Polymer/pwa-starter-kit).
 The Dockerfile contains three stages: `dev` `prpl` `caddy`
 
 ```bash
-sudo docker build --target caddy --tag pwa-starter-kit-caddy .
-sudo docker run -p 8080:8080 pwa-starter-kit-caddy
+sudo docker-compose up --build
 ```
 
-Open question:
-> Does HTTP/2 Push really work wit this?
+`HTTP/1.1`
+- [dev](http://localhost:8080/)
+- [prpl](http://localhost:8081/)
+
+`HTTP/2.0`
+- [prpl-caddy](https://localhost:8082/)
+- [caddy](https://localhost:8083/)

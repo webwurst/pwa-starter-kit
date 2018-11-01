@@ -2,11 +2,30 @@ version: '2.3'
 
 services:
 
-  app:
+  dev:
     build:
       context: .
       target: dev
     ports:
       - 8080:8080
-    # volumes:
-    #   - .:/usr/src/app
+
+  prpl:
+    build:
+      context: .
+      target: prpl
+    ports:
+      - 8081:8080
+
+  prpl-caddy:
+    image: giantswarm/caddy:v0.11.0-test2-slim
+    ports:
+      - 8082:8080
+    volumes:
+      - ./docker/caddy-config:/etc/caddy
+
+  caddy:
+    build:
+      context: .
+      target: caddy
+    ports:
+      - 8083:8080
